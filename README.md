@@ -1,2 +1,2 @@
-# ssh_configuration
-ssh_configuration
+# sshd_configuration
+sshd_configuration
