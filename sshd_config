@@ -1,26 +1,19 @@
 #	$OpenBSD: sshd_config,v 1.103 2018/04/09 20:41:22 tj Exp $
-
 # This is the sshd server system-wide configuration file.  See
 # sshd_config(5) for more information.
-
 # This sshd was compiled with PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
-
 # The strategy used for options in the default sshd_config shipped with
 # OpenSSH is to specify options with their default value where
 # possible, but leave them commented.  Uncommented options override the
 # default value.
-
 # If you want to change the port on a SELinux system, you have to tell
 # SELinux about this change.
 # semanage port -a -t ssh_port_t -p tcp #PORTNUMBER
-#
+# ListenAddress 0.0.0.0
+# ListenAddress ::
 Port 22
 Protocol 2
-
 AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
-
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 
@@ -30,8 +23,7 @@ HostKeyAlgorithms ecdsa-sha2-nistp521,ecdsa-sha2-nistp384,ecdsa-sha2-nistp256
 KexAlgorithms sntrup761x25519-sha512,mlkem768x25519-sha256,curve25519-sha256,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256
 MACs hmac-sha2-512,hmac-sha2-256
 
-#RekeyLimit default none
-
+# RekeyLimit default none
 # This system is following system-wide crypto policy. The changes to
 # crypto properties (Ciphers, MACs, ...) will not have any effect here.
 # They will be overridden by command-line options passed to the server
@@ -55,8 +47,7 @@ StrictModes yes
 MaxAuthTries 10
 MaxSessions 100
 
-#PubkeyAuthentication yes
-
+# PubkeyAuthentication yes
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
 AuthorizedKeysFile	.ssh/authorized_keys
@@ -104,27 +95,27 @@ GSSAPICleanupCredentials no
 # WARNING: 'UsePAM no' is not supported in RHEL and may cause several
 # problems.
 UsePAM yes
-
 AllowAgentForwarding no
 AllowTcpForwarding no
-#GatewayPorts no
-X11Forwarding no
+
 #X11DisplayOffset 10
 #X11UseLocalhost yes
+#GatewayPorts no
+X11Forwarding no
 
 # It is recommended to use pam_motd in /etc/pam.d/sshd instead of PrintMotd,
 # as it is more configurable and versatile than the built-in version.
 PrintMotd no
 
 #PrintLastLog yes
+#ChrootDirectory none
+#VersionAddendum none
 TCPKeepAlive yes
 Compression no
 ClientAliveCountMax 2
 UseDNS no
 PidFile /var/run/sshd.pid
 MaxStartups 100
-#ChrootDirectory none
-#VersionAddendum none
 
 # no default banner path
 #Banner none
@@ -139,7 +130,7 @@ AcceptEnv XMODIFIERS
 Subsystem	sftp	/usr/libexec/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
-#Match User anoncvs
+# Match User anoncvs
 #	X11Forwarding no
 #	AllowTcpForwarding no
 #	ForceCommand cvs server
