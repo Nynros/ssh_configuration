@@ -41,7 +41,7 @@ PermitRootLogin no
 PermitEmptyPasswords no
 PermitUserEnvironment no
 PermitUserRC no
-PermitTTY no
+PermitTTY yes
 
 # Authentication:
 LoginGraceTime 1m
