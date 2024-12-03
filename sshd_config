@@ -46,6 +46,7 @@ LoginGraceTime 1m
 StrictModes yes
 MaxAuthTries 10
 MaxSessions 100
+MaxStartups 100
 
 # PubkeyAuthentication yes
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
@@ -115,7 +116,6 @@ Compression no
 ClientAliveCountMax 2
 UseDNS no
 PidFile /var/run/sshd.pid
-MaxStartups 100
 
 # no default banner path
 #Banner none
