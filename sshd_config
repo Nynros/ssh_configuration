@@ -14,6 +14,8 @@
 Port 22
 Protocol 2
 AddressFamily any
+
+#HostKeys
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 
@@ -98,6 +100,7 @@ GSSAPICleanupCredentials no
 UsePAM yes
 AllowAgentForwarding no
 AllowTcpForwarding no
+AllowTcpForwarding no
 
 #X11DisplayOffset 10
 #X11UseLocalhost yes
@@ -132,5 +135,4 @@ Subsystem	sftp	/usr/libexec/openssh/sftp-server
 # Example of overriding settings on a per-user basis
 # Match User anoncvs
 #	X11Forwarding no
-#	AllowTcpForwarding no
 #	ForceCommand cvs server
